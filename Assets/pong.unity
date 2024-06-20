@@ -633,8 +633,8 @@ MonoBehaviour:
   sprite: {fileID: 0}
   rigid: {fileID: 0}
   speed: 5
-  UpKey: 273
-  DownKey: 274
+  UpKey: 119
+  DownKey: 115
 --- !u!212 &1228700817
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -875,8 +875,8 @@ MonoBehaviour:
   sprite: {fileID: 0}
   rigid: {fileID: 0}
   speed: 5
-  UpKey: 119
-  DownKey: 115
+  UpKey: 273
+  DownKey: 274
 --- !u!212 &1767730633
 SpriteRenderer:
   m_ObjectHideFlags: 0

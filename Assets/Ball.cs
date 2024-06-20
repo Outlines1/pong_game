@@ -37,6 +37,11 @@ public class Ball : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        rigidbody2D.velocity *= 1.1f;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (transform.position.x > 0)

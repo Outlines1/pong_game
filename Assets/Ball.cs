@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
+using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class Ball : MonoBehaviour
     public uiManager uiManager;
     public int LeftPlayerScore;
     public int RightPlayerScore;
+
+    public static event Action BallReset;
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -20,6 +24,8 @@ public class Ball : MonoBehaviour
 
     private void SendBallInRandomDirection()
     {
+        BallReset?.Invoke();
+        
         rigidbody2D.velocity = Vector3.zero;
         rigidbody2D.isKinematic = true;
         transform.position = Vector3.zero;
@@ -58,6 +64,7 @@ public class Ball : MonoBehaviour
             Debug.Log("Player Left +1");
             LeftPlayerScore++;
             uiManager.SetLeftPlayerScoreText(LeftPlayerScore.ToString());
+            
         }
         else
         {

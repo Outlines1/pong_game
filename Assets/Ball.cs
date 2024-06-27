@@ -9,6 +9,9 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     public Rigidbody2D rigidbody2D;
     public float Speed = 6f;
+    public uiManager uiManager;
+    public int LeftPlayerScore;
+    public int RightPlayerScore;
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -53,10 +56,14 @@ public class Ball : MonoBehaviour
         if (transform.position.x > 0)
         {
             Debug.Log("Player Left +1");
+            LeftPlayerScore++;
+            uiManager.SetLeftPlayerScoreText(LeftPlayerScore.ToString());
         }
         else
         {
             Debug.Log("Player Right +1");
+            RightPlayerScore++;
+            uiManager.SetRightPlayerScoreText(RightPlayerScore.ToString());
         }
         
         SendBallInRandomDirection();
